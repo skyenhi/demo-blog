@@ -2,3 +2,25 @@
 //library
 @import '../lib/variables';
 @import '../lib/mixins';
+body {
+  background: #f2f3f5;
+}
+.main-view {
+  background: #ffffff;
+  padding: 30px;
+  margin: 30px auto;
+}
+
+.news-item {
+  background-color: #fff;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  line-height: 20px;
+  &:last-child {
+    border-bottom: none;
+  }
+}
+.news-item .body {
+  color: #828282;
+}

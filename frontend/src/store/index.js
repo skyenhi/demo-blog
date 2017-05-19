@@ -1,19 +1,18 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import * as actions from './actions'
-import * as getters from './getters'
 
-import articleList from './modules/articleList'
+import actions from './actions'
+import getters from './getters'
+import mutations from './mutations'
 
-Vue.use(Vuex);
+Vue.use(Vuex)
 
-const debug = process.env.NODE_ENV !== 'production';
 
-export default new Vuex.Store({
-  actions,
-  getters,
-  modules: {
-      articleList
+export const store = new Vuex.Store({
+  state: {
+    articles: []
   },
-  strict: debug
-})
+  getters,
+  actions,
+  mutations
+});
