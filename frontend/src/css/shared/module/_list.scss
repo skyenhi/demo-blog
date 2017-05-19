@@ -2,3 +2,99 @@
 // Lists
 // -------------------------
 
+ul {
+  list-style: none;
+}
+
+ol,
+.list-ol {
+  margin: $margin-v-subchapter 0 $margin-v-subchapter+10px;
+  li {
+    list-style-position: inside;
+    padding-left: 1.6em;
+    text-indent: -1.4em;
+    margin: .5em 0;
+  }
+}
+
+.list-style-none {
+  li {
+    margin: .5em 0;
+    &:first-child { margin-top: 0; }
+    &:last-child  { margin-bottom: 0; }
+  }
+}
+
+.list-ul,
+.list-square {
+  margin: $margin-v-subchapter 0 $margin-v-subchapter;
+  @include list-style-square();
+  li {
+    margin: .5em 0;
+    &:first-child { margin-top: 0; }
+    &:last-child  { margin-bottom: 0; }
+  }
+  .col > &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.list-style-none {
+  @include list-style-none();
+}
+
+.list-links {
+  border-top: 3px solid $color-border-light;
+  border-bottom: 3px solid $color-border-light;
+  padding: $margin-v-subchapter 0;
+  margin: $margin-v-chapter 0;
+  list-style: none;
+  li {
+    margin: 1em 0;
+  }
+  a {
+    display: inline-block;
+    margin-left: 0;
+    @include mediaquery-sm(){
+      display: block;
+    }
+  }
+  //@extend .list-style-none;
+  @include list-style-none();
+}
+
+.list-inline {
+  @include list-style-none();
+  margin-left: -5px;
+
+  > li {
+    display: inline-block;
+    margin-top: .25em;
+    margin-bottom: .25em;
+    padding-left: 5px;
+    padding-right: 5px;
+  }
+}
+
+.list-links-inline {
+  overflow: hidden;
+  li {
+    display: inline-block;
+    line-height: $line-height-narrower;
+    border-left: 1px solid $color-border-light;
+    margin: 5px 1.1em 5px -0.85em;
+    padding-left: .75em;
+    &:last-child {
+      margin-right: 0;
+    }
+  }
+
+  &.wide {
+    li {
+      margin-bottom: 1em;
+      margin-right: 1.6em;
+      margin-left: -1.15em;
+      padding-left: 1.15em;
+    }
+  }
+}

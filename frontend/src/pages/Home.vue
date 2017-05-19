@@ -1,12 +1,9 @@
 <template>
   <div class="news-list">
     <ul>
-      <li class="news-item">
-        <span class="title"><a href="/item/14364061" class="">arcitle.title</a></span><br>
-        <span class="meta">
-          <span class="by"> by zebrafish</span>
-          <span class="comments-link">| 2 comments</span>
-        </span>
+      <li class="news-item" v-for="(article, index) in reducedArticles">
+        <span class="title"><a href="#">{{ article.title }}</a></span><br>
+        <span class="body">{{ article.body }}</span>
       </li>
     </ul>
   </div>
@@ -14,9 +11,19 @@
 
 
 <script>
-  import { mapGetters ,mapActions } from 'vuex'
+  import {mapActions, mapGetters}   from 'vuex'
 
-export default {}
+  export default {
+    created () {
+      this.getAllArticles()
+    },
+    computed: {
+    ...mapGetters(['reducedArticles'])
+    },
+    methods: {
+    ...mapActions(['getAllArticles'])
+    }
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
