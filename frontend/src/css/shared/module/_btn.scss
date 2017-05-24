@@ -7,16 +7,33 @@
 
 .btn {
   @include btn();
+  a {
+    color: $color-black;
+    text-decoration: none;
+  }
+  &:hover a,
+  &:active a,
+  &.active a {
+    color: $color-white;
+  }
 }
 
-.btn-blue {
-  background-color: $color-btn-blue;
-  &:hover {
-    background-color: lighten($color-btn-blue, 6%);
-  }
+.btn-ghost-main {
+  @extend %btn-ghost;
+  border: 1px solid #000;
+  color: #000;
+  &:hover,
   &:active,
   &.active {
-    background-color: $color-btn-blue;
+    background-color: $color-black;
+  }
+}
+.btn-main {
+  background-color: $color-coral;
+  &:hover,
+  &:active,
+  &.active {
+    background-color: $color-black;
   }
 }
 

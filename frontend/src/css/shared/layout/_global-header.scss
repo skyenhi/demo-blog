@@ -5,51 +5,86 @@
 // Base
 // ---------------------------------------------------
 
-.skip-navigation {
-  @include sr-only();
-  @include sr-only-focusable();
-  outline: none;
-  background-color: $color-gray-lightest;
+.header-logo {
+  position: relative;
   display: block;
-  //@include transition(all .1s $easeOutCubic);
-
-  span {
-    display: inline-block;
-    text-decoration: underline;
-    border: 1px dotted #000;
-    font-size: 10px;
-    padding: 7px 5px;
-    margin: 0 10px;
-  }
-
-  &:active,
-  &:focus {
-    padding: 10px 0;
-  }
-}
-
-#global-header {
-  line-height: 1;
-  width: 100%;
-  //position: fixed;
-  //top: 0;
-  //left: 0;
-  //z-index: $zindex-fixed-header;
-  border-bottom: 1px solid $color-border-light;
-  @include transition(all .2s $easeOutCubic);
-}
-
-.global-navigation {
   h1 {
-    font-size: $font-size-h3;
-    font-family: $font-family-alphanumeric;
-    margin: 1em 0;
+    margin: 0;
+  }
+  @include  mediaquery-sm() {
+    img {
+      width: 120px;
+    }
+  }
+}
+
+#global-navigation {
+  width: 100%;
+  color: $color-gray;
+  padding: 20px 0 10px 15px;
+  background: $color-white;
+  margin-bottom: 8px;
+  min-height: 70px;
+  position: relative;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+}
+
+#global-menu-btn {
+  display: block;
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  margin-right: 25px;
+  right: 0;
+  top: 40%;
+  background: transparent url('/app/img/ico_menu.png') center no-repeat;
+  visibility: visible; /* we use visible instead of display none bcos display none takes the element completely out of the page and causes things to move around.*/
+}
+
+#closer{
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  right: 0;
+  background-color: rgba(0,0,0, 0.1);
+  z-index: 80;
+  opacity: 1;
+}
+nav {
+  position: fixed;
+  height: 100%;
+  width: 300px;
+  top: 0;
+  right: 0%;
+  background-color: $color-white;
+  z-index: 100;
+  padding-top: 85px;
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
     a {
-      display: inline-block;
-      margin: 0 3px;
-      &:first-of-type {
-        margin-left: 0;
+      font-size: $font-size-base;
+      color: $color-gray;
+      text-decoration: none;
+      padding:16px 0 16px 40px;
+      display: block;
+      &:hover{
+        color: $color-coral;
       }
     }
   }
+}
+
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+.slide-fade-leave-active {
+  transition: all .5s ease;
+}
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateX(15px);
+  opacity: 0;
 }

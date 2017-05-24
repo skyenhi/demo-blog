@@ -10,7 +10,9 @@ Vue.use(Vuex)
 
 export const store = new Vuex.Store({
   state: {
-    articles: []
+    articles: [],
+    article: {},
+    comments: []
   },
   getters,
   actions,

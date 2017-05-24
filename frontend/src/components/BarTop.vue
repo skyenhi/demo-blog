@@ -1,32 +1,40 @@
 <template>
-    <div>
-        <header>
-            <header id="global-header">
-                <a class="skip-navigation" href="#content"><span>サイトメニューを読み飛ばして本文へ移動</span></a>
-                <div class="global-navigation container">
-                    <div class="col">
-                        <h1><router-link to="/">Vue Blog</router-link></h1>
-                    </div>
-                </div>
-            </header>
-        </header>
-        <div id="content">
-            <div class="content-header">
-                <div class="content-navigation">
-                    <ul class="content-navigation-list">
-                        <li class="current"><router-link to="/">Blog</router-link></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Contact</a></li>
-                    </ul>
-                </div>
+    <header>
+        <div id="global-navigation" class="container">
+            <div class="header-logo text-center"><router-link to="/"><img src="/app/img/logo.png" alt="logo"/></router-link></div>
+            <div class="global-menu">
+                <a @click="showAside = !showAside">
+                    <span id="closer" v-show="showAside"></span>
+                    <span id="global-menu-btn" v-show="!showAside"></span>
+                </a>
             </div>
+            <transition name="slide-fade">
+                <nav v-if="showAside">
+                    <ul>
+                        <li @click="showAside = !showAside"><router-link :to="'/'">Home</router-link></li>
+                        <li @click="showAside = !showAside"><router-link :to="'/group-training'">Group Training</router-link></li>
+                        <li @click="showAside = !showAside"><router-link :to="'/articles'">Blog</router-link></li>
+                        <li @click="showAside = !showAside"><router-link :to="'/about'">About Bee</router-link></li>
+                        <li @click="showAside = !showAside"><router-link :to="'/contact'">Contact</router-link></li>
+                    </ul>
+                </nav>
+            </transition>
         </div>
-    </div>
+    </header>
 </template>
 
-<script>
-    export default {}
-</script>
 
-<style scoped>
-</style>
+<script>
+    export default {
+        data() {
+            return {
+                showAside: false,
+            }
+        },
+        methods: {
+            goBack() {
+                this.$router.back();
+            }
+        }
+    };
+</script>
