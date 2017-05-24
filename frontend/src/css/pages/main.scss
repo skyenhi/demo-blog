@@ -2,25 +2,86 @@
 //library
 @import '../lib/variables';
 @import '../lib/mixins';
-body {
-  background: #f2f3f5;
-}
 .main-view {
-  background: #ffffff;
-  padding: 30px;
-  margin: 30px auto;
+  padding: 40px 0 80px;
+  min-height: 40vh;
 }
 
-.news-item {
+.posts-list {
   background-color: #fff;
   padding: 20px 0;
-  border-bottom: 1px solid #eee;
   position: relative;
   line-height: 20px;
-  &:last-child {
-    border-bottom: none;
+
+  article {
+    padding-bottom: 20px;
+    margin-bottom: 20px;
+    border-bottom: 1px solid rgba(190,190,190,.25);
+  }
+
+  .header a {
+    color: $color-black;
+    font-size: 18px;
+    line-height: 1.2;
+    display: block;
+    padding: 15px 0 0;
+    text-transform: uppercase;
+    font-weight: bold;
+  }
+  .content {
+    padding: 25px 0;
+  }
+  .meta {
+    .tag a {
+      color: $color-white;
+      background: $color-black;
+      padding: 5px 10px;
+    }
+    .date {
+      color: $color-gray;
+    }
   }
 }
-.news-item .body {
-  color: #828282;
+
+.comments-area {
+  margin-bottom: 50px;
+  padding: 35px 0;
+  padding-bottom: 0;
+  border-top: 2px solid #e6e3e3;
+  li.comment {
+    margin-top: 0;
+    list-style: none;
+    border-bottom: 1px solid #eeeeee;
+    &:last-child {
+      border-bottom: none;
+    }
+    .comment-author {
+      width: 50px;
+      margin: 40px 0;
+      margin-right: 30px;
+      float: left;
+
+      img {
+        width: 50px;
+        height: auto;
+        border-radius: 25px;
+      }
+    }
+    .comment-metadata {
+      margin-top: 40px;
+      margin-bottom: 30px;
+      display: table;
+
+      .author a {
+        text-decoration: none;
+        color: $color-coral;
+      }
+
+      .reply {
+        float: right;
+        margin-right: 10px;
+        margin-top: 40px;
+      }
+    }
+  }
 }

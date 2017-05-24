@@ -13,10 +13,9 @@
 // Base
 // ---------------------------------------------------
 #global-footer {
-  border-top: 1px solid $color-border-light;
   padding: $margin-v-subchapter 0 $margin-v-chapter;
   color: $color-gray;
-
+  background: #1e1c1c;
   [role=contentinfo] small {
     font-family: $font-family-alphanumeric;
   }

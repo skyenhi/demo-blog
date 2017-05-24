@@ -38,6 +38,10 @@ ol,
     margin-bottom: 0;
   }
 }
+.list-decimal {
+  margin: 20px 0 20px 20px;
+  list-style: decimal;
+}
 
 .list-style-none {
   @include list-style-none();
