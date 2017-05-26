@@ -10,9 +10,8 @@
         </div><!-- .comment-author -->
         <div class="comment-metadata">
           <div class="author">
-            <cite><a href="#">Bee Simone</a></cite>
+            <cite><router-link v-bind:to="'/users/'+comment.id">{{ comment.email }}</router-link></cite>
           </div>
-          <div class="date">May 11, 2016 at 12:28 pm</div>
           <div class="comment-content">
             <p>{{ comment.body }}</p>
           </div>
