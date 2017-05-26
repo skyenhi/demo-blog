@@ -12,7 +12,8 @@ export const store = new Vuex.Store({
   state: {
     articles: [],
     article: {},
-    comments: []
+    comments: [],
+    user: {}
   },
   getters,
   actions,
