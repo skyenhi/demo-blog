@@ -1,10 +1,10 @@
 export default {
-    reducedArticles: (state) => {
+  reducedArticles: (state) => {
     const articles = state.articles.map(article => {
-        let newArticle = {}
-        for (let i in article) { newArticle[i] = article[i] }
-        return newArticle
+      let newArticle = {}
+      for (let i in article) { newArticle[i] = article[i] }
+    return newArticle
     })
-        return articles
-    }
+    return articles
+  }
 }
