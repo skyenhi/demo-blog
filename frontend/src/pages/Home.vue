@@ -41,7 +41,7 @@
 </template>
 
 <script>
-  import {mapActions, mapGetters}   from 'vuex'
+  import {mapActions, mapState}   from 'vuex'
   import { swiper, swiperSlide } from 'vue-awesome-swiper';
   export default {
     components: {
@@ -70,21 +70,21 @@
     this.getArticleList()
   },
   computed: {
-  ...mapGetters(['articleList']),
-            offset() {
+    ...mapState(['articles']),
+    offset() {
       return ((this.currentPage - 1) * this.perPage);
     },
     limit() {
       return (this.offset + this.perPage);
     },
     numOfPages() {
-      return Math.ceil(this.articleList.length / this.perPage);
+      return Math.ceil(this.articles.length / this.perPage);
     },
     computedArticles() {
-      if (this.offset > this.articleList.length) {
+      if (this.offset > this.articles.length) {
         this.currentPage = this.numOfPages;
       }
-      return this.articleList.slice(this.offset, this.limit);
+      return this.articles.slice(this.offset, this.limit);
     }
   },
   methods: {
