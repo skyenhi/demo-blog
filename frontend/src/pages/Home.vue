@@ -19,7 +19,7 @@
       <p>Shala is Sanskrit for home, and Just Be Yoga Shala is your home to feel the personal transformative power of yoga. It is Bee’s mission to inspire her students to live their yoga. By allowing yourself to be wholly authentic, you make your entire life a place for yoga. She has a heart-centered approach to teaching in order to make sure that each student gets the most out of their practice. Come by and try a class for yourself!</p>
     </div>
     <div class="posts-list">
-      <article class="subchapter media-left media-not-sm" v-for="(article, index) in computedUsers">
+      <article class="subchapter media-left media-not-sm" v-for="(article, index) in computedArticles">
         <div class="image">
           <img src="/app/img/img_post_item_2.jpg" alt="">
         </div>
@@ -67,10 +67,10 @@
   },
 
   created () {
-    this.getAllArticles()
+    this.getArticleList()
   },
   computed: {
-  ...mapGetters(['reducedArticles']),
+  ...mapGetters(['articleList']),
             offset() {
       return ((this.currentPage - 1) * this.perPage);
     },
@@ -78,17 +78,17 @@
       return (this.offset + this.perPage);
     },
     numOfPages() {
-      return Math.ceil(this.reducedArticles.length / this.perPage);
+      return Math.ceil(this.articleList.length / this.perPage);
     },
-    computedUsers() {
-      if (this.offset > this.reducedArticles.length) {
+    computedArticles() {
+      if (this.offset > this.articleList.length) {
         this.currentPage = this.numOfPages;
       }
-      return this.reducedArticles.slice(this.offset, this.limit);
+      return this.articleList.slice(this.offset, this.limit);
     }
   },
   methods: {
-  ...mapActions(['getAllArticles']),
+  ...mapActions(['getArticleList']),
             setPage(n) {
       this.currentPage = n;
     }
