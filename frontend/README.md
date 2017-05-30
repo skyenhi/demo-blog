@@ -13,3 +13,8 @@ npm run build
 
 ```
 
+### Specification
+* Swiper (Slide) component for Vue.js<br/>
+`$ npm install vue-awesome-swiper --save-dev`
+*Vue-Paginate v3.5
+`$ npm install vue-paginate --save``

@@ -2,6 +2,7 @@ import Vue from 'vue';
 import VueResource from 'vue-resource';
 import App from './App.vue';
 import router from './router';
+import VuePaginate from 'vue-paginate'
 
 import { store } from './store/index';
 // CSS
@@ -10,6 +11,7 @@ import './css/shared/module.scss';
 import './css/pages/main.scss';
 
 Vue.use(VueResource);
+Vue.use(VuePaginate)
 
 Vue.config.productionTip = false;
 
