@@ -8,7 +8,7 @@
     <div class="text">
       <ul class="list-links-inline">
         <li :class="{'active': tabInfo}" @click="info">Info </li>
-        <li :class="{'active': tabAlbum}" @click="album">Album</li>
+        <li :class="{'active': tabAlbum}" @click="album">Albums</li>
       </ul>
       <div class="tabs-content">
         <div v-if="tabInfo">
@@ -17,10 +17,16 @@
           <p>Website: {{ user.website }}</p>
           <p>Company: {{ user.company.name }}</p>
           <p><i>{{ user.company.catchPhrase }}</i></p>
-          <div id="map_canvas1"></div>
         </div>
         <div v-else>
-          <p>My album</p>
+          <ul class="row">
+            <li class="col col-4" v-for='album in albums'>
+              <router-link v-bind:to="'/albums/'+album.id">
+                <img src="//placehold.it/240x160" alt="album">
+                <span class="img-title">{{ album.title }}</span>
+              </router-link>
+              </li>
+            </ul>
         </div>
       </div>
     </div>
@@ -39,13 +45,14 @@
       }
     },
     created () {
-      this.getUser(this.$route.params.id)
+      this.getUser(this.$route.params.id),
+      this.getAlbums(this.$route.params.id)
     },
     computed: {
-    ...mapState(['user'])
+    ...mapState(['user', 'albums'])
     },
     methods: {
-    ...mapActions(['getUser']),
+    ...mapActions(['getUser', 'getAlbums']),
       info() {
         this.tabInfo = true
         this.tabAlbum = false

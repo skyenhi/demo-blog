@@ -14,5 +14,13 @@ export default {
   // user
   set_user: (state, user) => {
     state.user = user
+  },
+  // albums
+  set_albums: (state, albums) => {
+    state.albums = albums
+  },
+  // photos
+  set_photos: (state, photos) => {
+    state.photos = photos
   }
 }
