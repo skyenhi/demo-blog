@@ -7,6 +7,7 @@ import User from '../pages/User.vue';
 import About from '../pages/About.vue';
 import GroupTraining from '../pages/GroupTraining.vue';
 import Contact from '../pages/Contact.vue';
+import Album from '../pages/Album.vue';
 
 
 Vue.use(Router);
@@ -17,6 +18,7 @@ export default new Router({
     { path: '/', name: 'home', component: Home },
     {path: '/articles', name: 'articles', component: Articles},
     {path: '/articles/:id', name: 'article', component: Article},
+    {path: '/albums/:id', name: 'album', component: Album},
     {path: '/users/:id', name: 'user', component: User},
     {path: '/about', name: 'about', component: About},
     {path: '/group-training', name: 'grouptraining', component: GroupTraining},

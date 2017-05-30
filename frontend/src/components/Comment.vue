@@ -24,30 +24,23 @@
 </template>
 
 <script>
-  import {mapActions, mapState, mapMutations} from 'vuex'
+  import {mapActions, mapState} from 'vuex'
   export default {
     data () {
-    return {
-      name: '',
-      address: '',
-      content: ''
+      return {
+        name: '',
+        address: '',
+        content: ''
+      }
+    },
+    created () {
+      this.getAllComments(this.$route.params.id)
+    },
+    computed: {
+      ...mapState(['comments'])
+    },
+    methods: {
+      ...mapActions(['getAllComments'])
     }
-  },
-  created () {
-    this.getAllComments(this.$route.params.id)
-  },
-  computed: {
-  ...mapState(['comments'])
-  },
-  methods: {
-  ...mapActions({getAllComments: 'getAllComments'})
-  },
-
-  watch: {
-    $route (to, from) {
-      to.hash === '/articles' ? this.content = '' : 0
-      this.getAllComments({id: to.params.id})
-    }
-  }
   }
 </script>

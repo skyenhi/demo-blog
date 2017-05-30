@@ -13,7 +13,9 @@ export const store = new Vuex.Store({
     articles: [],
     article: {},
     comments: [],
-    user: {}
+    user: {},
+    albums: [],
+    photos: []
   },
   getters,
   actions,
