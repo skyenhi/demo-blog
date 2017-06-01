@@ -49,50 +49,49 @@
       swiperSlide
     },
     data () {
-    return {
-      currentPage: 1,
-      perPage: 15,
-      swiperOption: {
-        pagination: '.swiper-pagination',
-        nextButton: '.swiper-button-next',
-        prevButton: '.swiper-button-prev',
-        slidesPerView: 1,
-        paginationClickable: true,
-        autoplay: 3000,
-        spaceBetween: 30,
-        loop: true,
-        effect: 'fade'
+      return {
+        currentPage: 1,
+        perPage: 15,
+        swiperOption: {
+          pagination: '.swiper-pagination',
+          nextButton: '.swiper-button-next',
+          prevButton: '.swiper-button-prev',
+          slidesPerView: 1,
+          paginationClickable: true,
+          autoplay: 3000,
+          spaceBetween: 30,
+          loop: true,
+          effect: 'fade'
+        }
+      }
+    },
+    created () {
+      this.getArticleList()
+    },
+    computed: {
+      ...mapState(['articles']),
+      offset() {
+        return ((this.currentPage - 1) * this.perPage);
+      },
+      limit() {
+        return (this.offset + this.perPage);
+      },
+      numOfPages() {
+        return Math.ceil(this.articles.length / this.perPage);
+      },
+      computedArticles() {
+        if (this.offset > this.articles.length) {
+          this.currentPage = this.numOfPages;
+        }
+        return this.articles.slice(this.offset, this.limit);
+      }
+    },
+    methods: {
+      ...mapActions(['getArticleList']),
+      setPage(n) {
+        this.currentPage = n;
       }
     }
-  },
-
-  created () {
-    this.getArticleList()
-  },
-  computed: {
-    ...mapState(['articles']),
-    offset() {
-      return ((this.currentPage - 1) * this.perPage);
-    },
-    limit() {
-      return (this.offset + this.perPage);
-    },
-    numOfPages() {
-      return Math.ceil(this.articles.length / this.perPage);
-    },
-    computedArticles() {
-      if (this.offset > this.articles.length) {
-        this.currentPage = this.numOfPages;
-      }
-      return this.articles.slice(this.offset, this.limit);
-    }
-  },
-  methods: {
-  ...mapActions(['getArticleList']),
-            setPage(n) {
-      this.currentPage = n;
-    }
-  }
   }
 </script>
 
