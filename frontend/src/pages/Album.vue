@@ -10,18 +10,10 @@
       this.getPhotos(this.$route.params.id)
     },
     computed: {
-    ...mapState(['photos'])
+      ...mapState(['photos'])
     },
     methods: {
-    ...mapActions(['getPhotos']),
-      info() {
-        this.tabInfo = true
-        this.tabAlbum = false
-      },
-      album() {
-        this.tabInfo = false
-        this.tabAlbum = true
-      }
+      ...mapActions(['getPhotos'])
     }
   }
 </script>
