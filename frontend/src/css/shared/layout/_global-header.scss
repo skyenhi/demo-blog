@@ -86,36 +86,3 @@ nav {
   transform: translateX(15px);
   opacity: 0;
 }
-
-
-.menu {
-  text-align: center;
-  min-height: 29px;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-  &:after {
-    display: block;
-    content: " ";
-    clear: both;
-  }
-  li {
-    padding-top: 28px;
-    padding-bottom: 28px;
-    position: relative;
-     >a {
-      color: $color-black;
-      display: block;
-      padding: 5px;
-      padding-left: 25px;
-      padding-right: 25px;
-      text-decoration: none;
-      background: transparent;
-      cursor: pointer;
-      border-bottom: 1px solid transparent;
-      border-top: 1px solid transparent !important;
-      border-right: 1px solid rgba(0, 0, 0, 0.1);
-    }
-    &:last-child >a {
-      border-right: none;
-    }
-  }
-}
