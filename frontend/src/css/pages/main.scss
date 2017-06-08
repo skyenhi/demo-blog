@@ -28,15 +28,18 @@
     text-transform: uppercase;
     font-weight: bold;
   }
+
   .content {
     padding: 25px 0;
   }
+
   .meta {
     .tag a {
       color: $color-white;
       background: $color-black;
       padding: 5px 10px;
     }
+
     .date {
       color: $color-gray;
     }
@@ -48,13 +51,16 @@
   padding: 35px 0;
   padding-bottom: 0;
   border-top: 2px solid #e6e3e3;
+
   li.comment {
     margin-top: 0;
     list-style: none;
     border-bottom: 1px solid #eeeeee;
+
     &:last-child {
       border-bottom: none;
     }
+
     .comment-author {
       width: 50px;
       margin-right: 30px;
@@ -66,6 +72,7 @@
         border-radius: 25px;
       }
     }
+
     .comment-metadata {
       margin-top: 40px;
       margin-bottom: 30px;
@@ -85,67 +92,64 @@
   }
 }
 
-
-/*photo*/
-.panel{
+.panel {
   position: relative;
-  background: #fff;
-  border-radius: 5px;
-  margin-bottom: 15px;
-  border-right: solid 1px #d6d6d7;
-  border-bottom: solid 1px #d1d1d2;
-}
-.panel-title {
-  position: relative;
-  border-radius: 5px 5px 0 0;
-  background: #edf8fe;
-  padding: 10px 20px;
-  color:#59bfff;
+  background: $color-white;
+
+  .panel-title {
+    position: relative;
+    background: #edf8fe;
+    padding: 10px 20px;
+    color:#59bfff;
+  }
+
+  .panel-body{
+    padding: 10px 20px;
+    overflow: hidden;
+  }
+
+  .panel-body-img{
+    width: 100%;
+    border:1px solid #f2f2f2;
+    padding: 5px;
+  }
+
+  .panel-content{
+    line-height: 26px;
+    max-height: 104px;
+    overflow: hidden;
+  }
+
+  .photo-move{
+    @include transition(all .5s ease);
+  }
 }
 
-.panel-body{
-  padding: 10px 20px;
-  overflow: hidden;
-}
-.panel-body-img{
-  width: 100%;
-  border:1px solid #f2f2f2;
-  padding: 5px;
-}
-.panel-content{
-  line-height: 26px;
-  max-height: 104px;
-  overflow: hidden;
-}
-.photo-move{
-  transition: all .5s ease;
-  -webkit-transition: all .5s ease;
-}
 .photo-box{
   position: relative;
   padding: 7px;
   margin-right: 15px;
   cursor: zoom-in;
+
+  &:hover .photobox-top{
+    @include opacity(1);
+  }
+
+  .photo-box-top{
+    @include opacity(0);
+    @include transition(all .2s ease);
+    position: absolute;
+    background-color: $color-white;
+    top: 7px;
+    right: 7px;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+
+  > img{
+    width: 100%
+  }
 }
-.photo-box:hover .photobox-top{
-  opacity: 1;
-}
-.photo-box-top{
-  opacity: 0;
-  transition: all .2s ease;
-  -webkit-transition: all .2s ease;
-  position: absolute;
-  background-color: #fff;
-  top: 7px;
-  right: 7px;
-  padding: 5px 10px;
-  border-bottom-left-radius: 5px;
-  cursor: pointer;
-}
-.photo-box > img{
-  width: 100%
-}
-/*photo end*/
 
 .photo-modal{
   position: fixed;
@@ -160,28 +164,29 @@
   background-color: rgba(0, 0, 0, .5);
   -webkit-overflow-scrolling: touch;
   outline: 0;
-  transition: opacity .3s ease;
+  @include transition(all .3s ease);
 }
+
 .photo-modal-dialog{
   max-width: 1200px;
   min-width: 400px;
   display: inline-block;
   margin: 75px auto;
-  transition: all .3s ease;
+  @include transition(all .3s ease);
+
+  .panel-body{
+    cursor: zoom-out;
+  }
+
+  img{
+    max-height: 450px;
+  }
 }
-.photo-modal-dialog .panel-body{
-  cursor: zoom-out;
-}.photo-modal-dialog img{
-   max-height: 450px;
- }
-.photo-modal-enter {
-  opacity: 0;
+.photo-modal-enter, .photo-modal-leave-active {
+  @include opacity(0);
 }
-.photo-modal-leave-active {
-  opacity: 0;
-}
+
 .photo-modal-enter .photo-modal_dialog,
 .photo-modal-leave-active .photo-modal_dialog {
-  -webkit-transform: scale(1.1);
-  transform: scale(1.1);
+  @include scale(1.1)
 }
