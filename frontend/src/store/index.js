@@ -13,7 +13,12 @@ export const store = new Vuex.Store({
     articles: [],
     article: {},
     comments: [],
-    user: {},
+    user: {
+      address: {
+        geo: {}
+      },
+      company: {}
+    },
     albums: [],
     photos: []
   },
