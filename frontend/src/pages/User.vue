@@ -7,8 +7,8 @@
 
     <div class="text">
       <ul class="list-links-inline">
-        <li :class="{'active': tabInfo}" @click="info">Info </li>
-        <li :class="{'active': tabAlbum}" @click="album">Albums</li>
+        <li :class="{'active': tabInfo}" @click="info"><b>Info</b> </li>
+        <li :class="{'active': tabAlbum}" @click="album"><b>Albums</b></li>
       </ul>
       <div class="tabs-content">
         <div v-if="tabInfo">
@@ -17,6 +17,19 @@
           <p>Website: {{ user.website }}</p>
           <p>Company: {{ user.company.name }}</p>
           <p><i>{{ user.company.catchPhrase }}</i></p>
+          <p>{{ user.address.geo.lat }}, {{ user.address.geo.lng }}</p>
+          <gmap-map
+                  :center="{lat: 10, lng: 10}"
+                  :zoom="7"
+                  map-type-id="terrain"
+                  style="width: 500px; height: 300px"
+          >
+            <gmap-marker
+                    :position="{lat:10, lng:10}"
+                    :clickable="true"
+                    :draggable="true"
+            ></gmap-marker>
+          </gmap-map>
         </div>
         <div v-else>
           <ul class="row">
@@ -49,10 +62,10 @@
       this.getAlbums(this.$route.params.id)
     },
     computed: {
-    ...mapState(['user', 'albums'])
+      ...mapState(['user', 'albums'])
     },
     methods: {
-    ...mapActions(['getUser', 'getAlbums']),
+      ...mapActions(['getUser', 'getAlbums']),
       info() {
         this.tabInfo = true
         this.tabAlbum = false
